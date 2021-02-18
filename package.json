@@ -1,0 +1,23 @@
+{
+  "name": "docker-nextjs-pm2-nginx",
+  "version": "1.0.0",
+  "description": "set up a production Docker environment for a Next.js app with NGINX as a reverse-proxy",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "reverse-proxy",
+    "nginx",
+    "nextjs"
+  ],
+  "author": "Iwan Firmawan <firmawaneiwan@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
