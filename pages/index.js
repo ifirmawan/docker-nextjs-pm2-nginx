@@ -6,7 +6,7 @@ const HomePage = ({ host }) => {
       <Link href="/about">
         <a>About</a>
       </Link>
-      <h1>Home {host || ''}</h1>
+      <h1>Home {`${process.env.NEXT_PUBLIC_ENV_API_PREFIX}.${host}`}</h1>
       <img src="/home.jpg" alt="homepage" />
     </>
   )
