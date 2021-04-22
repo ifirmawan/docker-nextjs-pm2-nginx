@@ -1,0 +1,33 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./backend:/var/www
+    ports: 
+      - 80:80
+  laravel:
+    build: 
+      context: .
+      dockerfile: ./backend/Dockerfile
+    volumes: 
+      #copy project files to /var/www ##
+      - ./backend:/var/www
+    working_dir: /var/www
+  db:
+    image: mysql:5.7
+    ## expose the msyql port
+    ports:
+      - "3388:3306"
+    volumes: 
+      - ./docker-volumes-data/db:/var/lib/database
+    environment: 
+      MYSQL_DATABASE: laravel_db
+      MYSQL_ROOT_PASSWORD: root
+  redis:
+    image: redis
+    volumes: 
+      # keep redis data on localhost
+      - ./docker-volumes-data/redis:/data
+  nextjs:
+    build: ./frontend
